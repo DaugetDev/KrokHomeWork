@@ -1,6 +1,4 @@
-package Homework2;
-
-public class Main {
+public class DemonstrationOfTheWork {
     public static void main(String[] args) {
         EntryPoint[] entryPoints = new EntryPoint[2];
         entryPoints[0] = new EntryPoint(2, "Основной въезд");
@@ -17,6 +15,8 @@ public class Main {
         myParking.exit(new Car("x777xx"), 2);
         myParking.printListCarsInEntryPoint(entryPoints[0]);
         myParking.printListCarsInExitPoint(exitPoints[0]);
+        myParking.infoCanEnter();
+        System.out.println("Свободных мест " + myParking.getNumbersFreeParkingSpace());
         myParking.printListAttemptsToEnter();
     }
 }

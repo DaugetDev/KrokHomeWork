@@ -1,16 +1,13 @@
-package Homework2;
-
 /**
- * Класс для моделирования точки въезда.
+ * Класс для моделирования точки выезда.
  */
-
-public class EntryPoint{
+public class ExitPoint{
     private final int number;
     private final String description;
     private int countCars;
     Car[] cars;
 
-    public EntryPoint(int number, String description){
+    public ExitPoint(int number, String description){
         this.number = number;
         this.description = description;
         this.cars = new Car[10];
@@ -19,7 +16,7 @@ public class EntryPoint{
      * Метод, который добавляет машину в массив машин, расширяя этот массив, если необходимо.
      * @param car машина, которая добавится.
      */
-    private void addEntryCar(Car car){
+    private void addExitCar(Car car){
         countCars++;
         if(countCars > cars.length){
             Car[] newCars = new Car[cars.length * 2];
@@ -31,14 +28,21 @@ public class EntryPoint{
             cars[countCars - 1] = car;
         }
     }
-
     /**
-     * Возвращает количество проехавших через въезд машин.
+     * Добавляет машину в массив машин, которые проехали через данный выезд.
+     * @param car Машина, которая проехала через выезд.
+     */
+    public void rememberCar(Car car){
+        addExitCar(car);
+    }
+    /**
+     * Возвращает количество проехавших через выезд машин.
      * @return кол-во машин.
      */
     public int getCountCars(){
         return countCars;
     }
+
     /**
      * Возвращает описание выезда.
      * @return описание выезда.
@@ -48,16 +52,8 @@ public class EntryPoint{
     }
 
     /**
-     * Добавляет машину в массив машин, которые проехали через данный въезд.
-     * @param car Машина, которая проехала через въезд.
-     */
-    public void rememberCar(Car car){
-        addEntryCar(car);
-    }
-
-    /**
-     * Возвращает номер въезда.
-     * @return номер въезда.
+     * Возвращает номер выезда.
+     * @return номер выезда.
      */
     public int getNumber(){
         return  number;
